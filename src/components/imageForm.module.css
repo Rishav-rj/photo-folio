@@ -1,0 +1,68 @@
+.container{
+    width:50vw;
+    margin: 20px auto 0 auto;
+    border-radius:8px;
+    padding: 20px;
+}
+
+.dark{
+    background-color: rgb(122, 122, 122);
+    color: white;
+}
+
+.light{
+    background-color: rgb(255, 255, 255);
+    color:black;
+}
+
+.container h2{
+    margin: 0;
+}
+
+.form{
+    display: flex;
+}
+
+.input{
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn button{
+    padding: 7px;
+    margin: 2px;
+    font-family: "Martel", serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn button:first-child{
+    background-color:rgb(43, 43, 43);
+    color:rgb(255, 255, 255) ;
+}
+
+.btn button:last-child{
+    background-color:rgb(128, 184, 91);
+    color:rgb(255, 255, 255) ;
+}
+
+.form input{
+    padding: 5px 8px;
+    margin: 2px;
+    font-family: "Martel", serif;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
