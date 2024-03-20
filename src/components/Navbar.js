@@ -2,7 +2,7 @@ import styles from "./navbar.module.css"
 
 const Navbar = ({mode, setMode}) => {
 
-
+    // Function to change the theme between light & dark
     const changeMode = ()=>{
         if(mode === "light"){
             setMode("dark")

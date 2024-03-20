@@ -3,10 +3,13 @@ import styles from "./carousel.module.css"
 
 const Carousel = ({images, handleCarousel, currectIndex}) => {
     
+    // Current index on image
     const [index, setIndex] = useState(currectIndex);
 
+    // Array of Image URLs
     const imageURLs = images.map(image => image.image)
 
+    // Function for Previous Button to make the previous image active
     function prev(){
         if(index === 0){
             setIndex(imageURLs.length-1)
@@ -15,6 +18,7 @@ const Carousel = ({images, handleCarousel, currectIndex}) => {
         }
     }
 
+    // Function for Next Button to make the Next image active
     function next(){
         if(index === (imageURLs.length-1)){
             setIndex(0)

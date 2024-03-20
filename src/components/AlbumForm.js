@@ -6,9 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from "./albumForm.module.css"
 
 const AlbumForm = ({mode}) => {
+
+    // UseRef used for input values
     const albumNameRef = useRef(null);
     const albumImageRef = useRef(null);
 
+    // Toastify used for Notofications
     const AlbumAddNotify = () => toast.success("Album Added Successfully!", {
                 position: "top-center",
                 autoClose: 2000,
@@ -21,6 +24,7 @@ const AlbumForm = ({mode}) => {
             theme: (mode ==="light")?"dark":"light",
         });
 
+    // Function to handle new ablum creation 
     async function handleSubmit(e){
         e.preventDefault()
         const albumName = albumNameRef.current.value
@@ -46,6 +50,7 @@ const AlbumForm = ({mode}) => {
         AlbumAddNotify()
     }
 
+    // Reset funtion to empty the input fields
     function reset(){
         albumNameRef.current.value = ""
         albumImageRef.current.value = ""
@@ -53,6 +58,7 @@ const AlbumForm = ({mode}) => {
 
   return (
     <>  
+        {/* Conditional styling */}
         <div className={mode==="light"?`${styles.container} ${styles.light}` :`${styles.container} ${styles.dark}`}>
             <h2 className={mode==="light"?styles.light: styles.dark}>Create an Album</h2>
             <form onSubmit={handleSubmit} className={styles.form}>

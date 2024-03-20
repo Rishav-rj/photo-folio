@@ -7,9 +7,11 @@ import styles from "./imageForm.module.css"
 
 const ImageForm = ({albumId, mode, updateImg, setUpdateImg}) => {
 
+    // UseRef used for input values
     const imageTitleRef = useRef(null);
     const imageRef = useRef(null);
 
+    // Toastify used for Notifications
     const ImageNotify = (msg) => toast.success(msg, {
                 position: "top-center",
                 autoClose: 2000,
@@ -23,6 +25,7 @@ const ImageForm = ({albumId, mode, updateImg, setUpdateImg}) => {
         theme: (mode ==="light")?"dark":"light",
     });
 
+    // UseEffect used to autofill the form when edit button clicked
     useEffect(() => {
         if (updateImg) {
             imageTitleRef.current.value = updateImg.name;
@@ -33,6 +36,8 @@ const ImageForm = ({albumId, mode, updateImg, setUpdateImg}) => {
         }
     }, [updateImg]);
 
+
+    // Function to edit Or add a new image in perticualr album
     async function handleSubmit(e){
         e.preventDefault()
 
@@ -68,6 +73,7 @@ const ImageForm = ({albumId, mode, updateImg, setUpdateImg}) => {
         ImageNotify("Image Added Successfully!")
     }
 
+    // Function to make the input fields empty
     function reset(){
         imageTitleRef.current.value = ""
         imageRef.current.value = ""
@@ -76,7 +82,8 @@ const ImageForm = ({albumId, mode, updateImg, setUpdateImg}) => {
 
 
   return (
-    <>
+    <>  
+        {/* Conditional styling */}
         <div className={mode==="light"?`${styles.container} ${styles.light}` :`${styles.container} ${styles.dark}`}>
             <h2 className={mode==="light"?styles.light: styles.dark}>Add an Image</h2>
             <form onSubmit={handleSubmit} className={styles.form}>
